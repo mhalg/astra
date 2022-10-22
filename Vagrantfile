@@ -32,6 +32,4 @@ Vagrant.configure("2") do |config|
         zbx.vm.hostname = "zabbix.test.local"
         zbx.vm.network "forwarded_port", guest: 80, host: 8082     
     end
-
-
 end
