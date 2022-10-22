@@ -5,3 +5,9 @@ apt install virtualbox vagrant virtualbox-ext-pack
 
 # we can create vbox with astralinux base on VM installed from ISO file
 vagrant package --base vagrant-astralinux --output vagrant-astralinux-one.box
+
+# initialize vagrant folder
+vagrant init astralinux-test
+
+# use Vagrantfile from same git repository to startup all 3 VMs
+vagrant up
