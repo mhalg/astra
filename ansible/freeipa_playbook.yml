@@ -1,1 +1,12 @@
 ---
+- name: Install FreeIPA Server
+  hosts: ipaserver
+  become: yes
+  
+  pre_tasks:
+   - file: path=/etc/hosts state=absent
+   - file: path=/etc/hosts state=touch
+   - apt: name=firewalld state=present
+   - systemd: name=firewalld state=started enabled=yes
+  roles:
+    - ipaserver
