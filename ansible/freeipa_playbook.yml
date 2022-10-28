@@ -4,7 +4,7 @@
   become: yes
 
   tasks:
-    - name: "Ensure tomcat installed"
+    - name: "Ensure freeipa installed"
       apt:
         pkg:
         - astra-freeipa-server
