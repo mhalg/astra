@@ -1,3 +1,4 @@
 # I used yandex cloud VM for verification of ipaserver installation and I've set hostname manually "sudo hostnamectl set-hostname ipaserver.test.local", but for Vagrant scenario it should be set automatically by Vagrant VM setup
-ansible roles are used:
-git clone https://github.com/freeipa/ansible-freeipa.git
+adjust ipaserver ip in ./hosts file
+use following command to setup ipaserver:
+ansible-playbook freeipa_playbook.yml
