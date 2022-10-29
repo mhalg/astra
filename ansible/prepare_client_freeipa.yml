@@ -1,5 +1,5 @@
 ---
-- name: "Setup ipaserver"
+- name: "Setup ipaclient"
   hosts: ipaclient
   become: yes
 
