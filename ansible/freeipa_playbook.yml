@@ -14,8 +14,8 @@
         - fly-admin-freeipa-server
         state: present
 
-#    - name: Inititalize freeipa server
-#      shell: astra-freeipa-server -d test.local -p password -y -o
+    - name: Inititalize freeipa server
+      shell: astra-freeipa-server -d test.local -p password -y -o
 
     - name: Create user1
       ipa_user:
