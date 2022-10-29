@@ -4,7 +4,7 @@
   become: yes
   
   task:
-    - name: Set a hostname for ipaserver
+    - name: "Set a hostname for ipaserver"
       hostname:
         name: ipaserver.test.dom
   tasks:
