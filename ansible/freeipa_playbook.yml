@@ -1,8 +1,12 @@
 ---
-- name: "Sethostname for ipaserver"
+- name: "Setup ipaserver"
   hosts: ipaserver
   become: yes
-
+  
+  task:
+    - name: Set a hostname for ipaserver
+      hostname:
+        name: ipaserver.test.dom
   tasks:
     - name: "Ensure freeipa installed"
       apt:
