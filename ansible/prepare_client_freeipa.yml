@@ -17,8 +17,6 @@
         state: present
 
     - name: Adjust domain-controller as DNS
- #     shell: echo "nameserver 51.250.78.203" > /etc/resolv.conf
- #     shell: sed -i 's/nameserver.*/nameserver 51.250.78.203/g' /etc/resolv.conf
       lineinfile:
         path: /etc/resolv.conf
         regexp: '^(.*)nameserver(.*)$'
