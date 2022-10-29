@@ -3,14 +3,16 @@
   hosts: ipaserver
   become: yes
   
-  task:
-    - name: "Set a hostname for ipaserver"
-      hostname:
-        name: ipaserver.test.dom
   tasks:
+    - name: "Set a hostname for ipaserver"
+      shell: hostnamectl set-hostname ipaserver.test.dom
+  
     - name: "Ensure freeipa installed"
       apt:
         pkg:
         - astra-freeipa-server
         - fly-admin-freeipa-server
         state: present
+        
+    - name: Inititalize freeipa server
+      shell: astra-freeipa-server -d test.local -p password -y -o 
