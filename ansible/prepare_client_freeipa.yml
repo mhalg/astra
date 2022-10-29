@@ -1,0 +1,26 @@
+---
+- name: "Setup ipaserver"
+  hosts: ipaclient
+  become: yes
+
+  tasks:
+    - name: "Set a hostname for ipaclient"
+      shell: hostnamectl set-hostname ipaclient.test.local
+
+    - name: "Ensure freeipa-client installed"
+      apt:
+        pkg:
+        - astra-freeipa-client
+        - fly-admin-freeipa-client
+        - shared-mime-info
+        - foreman-installer
+        state: present
+
+    - name: Adjust domain-controller as DNS
+      shell: echo "nameserver 51.250.78.203" > /etc/resolv.conf
+
+    - name: Inititalize freeipa client
+      shell: astra-freeipa-client -d test.local -y -u admin -p password
+
+    - name: Initialize Foreman
+      shell: foreman-installer > /tmp/foreman_install_output
