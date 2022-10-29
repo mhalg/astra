@@ -26,4 +26,4 @@
       shell: astra-freeipa-client -d test.local -y -u admin -p password
 
     - name: Initialize Foreman
-      shell: foreman-installer > /tmp/foreman_install_output
+      shell: foreman-installer
