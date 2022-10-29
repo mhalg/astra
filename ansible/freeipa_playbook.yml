@@ -16,3 +16,7 @@
         
     - name: Inititalize freeipa server
       shell: astra-freeipa-server -d test.local -p password -y -o 
+      
+    - name: Create users
+      shell: ipa user-add user1 --first=u --last=p1
+      shell: ipa user-add user2 --first=u --last=p2
