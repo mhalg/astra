@@ -2,21 +2,39 @@
 - name: "Setup ipaserver"
   hosts: ipaserver
   become: yes
-  
+
   tasks:
     - name: "Set a hostname for ipaserver"
       shell: hostnamectl set-hostname ipaserver.test.dom
-  
+
     - name: "Ensure freeipa installed"
       apt:
         pkg:
         - astra-freeipa-server
         - fly-admin-freeipa-server
         state: present
-        
-    - name: Inititalize freeipa server
-      shell: astra-freeipa-server -d test.local -p password -y -o 
-      
-    - name: Create users
-      shell: ipa user-add user1 --first=u --last=p1
-      shell: ipa user-add user2 --first=u --last=p2
+
+#    - name: Inititalize freeipa server
+#      shell: astra-freeipa-server -d test.local -p password -y -o
+
+    - name: Create user1
+      ipa_user:
+        name: user1
+        state: present
+        ipa_user: admin
+        ipa_pass: password
+        ipa_host: ipaserver.test.local
+        givenname: u
+        sn: p
+        password: password
+
+    - name: Create user1
+      ipa_user:
+        name: user2
+        state: present
+        ipa_user: admin
+        ipa_pass: password
+        ipa_host: ipaserver.test.local
+        givenname: u2
+        sn: p2
+        password: password
