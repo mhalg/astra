@@ -18,7 +18,7 @@
 
     - name: Adjust domain-controller as DNS
  #     shell: echo "nameserver 51.250.78.203" > /etc/resolv.conf
-      shell: sed -i 's/nameserver.*/nameserver 10.128.0.21/g' /etc/resolv.conf
+      shell: sed -i 's/nameserver.*/nameserver 51.250.78.203/g' /etc/resolv.conf
 
     - name: Inititalize freeipa client
       shell: astra-freeipa-client -d test.local -y -u admin -p password
