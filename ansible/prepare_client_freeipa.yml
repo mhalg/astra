@@ -20,7 +20,7 @@
       lineinfile:
         path: /etc/resolv.conf
         line: 'nameserver 51.250.2.64'
-        create: yes
+        state: present
 
     - name: Inititalize freeipa client
       shell: astra-freeipa-client -d test.local -y -u admin -p password
