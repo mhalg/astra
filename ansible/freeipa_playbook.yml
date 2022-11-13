@@ -5,7 +5,7 @@
 
   tasks:
     - name: "Set a hostname for ipaserver"
-      shell: hostnamectl set-hostname ipaserver.test.dom
+      shell: hostnamectl set-hostname ipaserver.test.local
 
     - name: "Ensure freeipa installed"
       apt:
