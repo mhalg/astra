@@ -20,7 +20,7 @@
       lineinfile:
         path: /etc/resolv.conf
         regexp: '^(.*)nameserver(.*)$'
-        line: 'nameserver 51.250.78.203'
+        line: 'nameserver 51.250.2.64'
 
     - name: Inititalize freeipa client
       shell: astra-freeipa-client -d test.local -y -u admin -p password
