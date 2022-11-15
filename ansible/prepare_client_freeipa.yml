@@ -28,17 +28,17 @@
     - name: Inititalize freeipa client
       shell: astra-freeipa-client -d test.local -y -u admin -p password
     
-    - name: Add PTR record for Foreman
-      ipa_dnsrecord:
-        ipa_host: 51.250.2.64
-        ipa_pass: password
-        state: present
-        zone_name: 0.128.10.in-addr.arpa.
-        record_name: 11
-        record_type: 'PTR'
-        record_value: 'ipaclient.test.local'
-        validate_certs: false
+#    - name: Add PTR record for Foreman
+#      ipa_dnsrecord:
+#        ipa_host: 51.250.2.64
+#        ipa_pass: password
+#        state: present
+#        zone_name: 0.128.10.in-addr.arpa.
+#        record_name: 11
+#        record_type: 'PTR'
+#        record_value: 'ipaclient.test.local'
+#        validate_certs: false
 
 
     - name: Initialize Foreman
-      shell: foreman-installe
+      shell: foreman-installer
