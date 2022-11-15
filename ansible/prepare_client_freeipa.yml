@@ -19,8 +19,8 @@
     - name: Adjust domain-controller as DNS
       lineinfile:
         path: /etc/resolv.conf
+        regexp: '^(.*)nameserver(.*)$'
         line: 'nameserver 51.250.2.64'
-        state: present
 
     - name: Inititalize freeipa client
       shell: astra-freeipa-client -d test.local -y -u admin -p password
@@ -38,4 +38,4 @@
 
 
     - name: Initialize Foreman
-      shell: foreman-installer
+      shell: foreman-installe
