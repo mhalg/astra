@@ -16,6 +16,9 @@
         - foreman-installer
         state: present
 
+    - name: Remove doamin configuration of yandex.cloud
+      shell: echo " " > /etc/resolve.conf
+
     - name: Adjust domain-controller as DNS
       lineinfile:
         path: /etc/resolv.conf
