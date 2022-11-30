@@ -1,13 +1,30 @@
 # PM with VirtualBox and vagrant should get following packages installed
 apt install virtualbox vagrant virtualbox-ext-pack 
 
-# create VM using the ISO file with Astralinux OS 1.7.2-11.08.2022_15.28.iso
+#create VM using the ISO file with Astralinux OS 1.7.2-11.08.2022_15.28.iso
+#newly created VM will 
+1) get two interfaces configured eth0 as VB NAT and eth1 as VB bridge, this need following addition to /etc/network/interfaces:
+##enable eth0 as NAT VB interface
+allow-hotplug eth0
+iface eth0 inet dhcp
+##enable eth1 as bridge VB interface
+allow-hotplug eth1
+iface eth1 inet dhcp
+2) have public key in authorized_keys file for remote access by key
+/home/test/.ssh/authorized_keys
+3) create vagrant user
 
 # we can create vbox with astralinux base on VM installed from ISO file
-vagrant package --base vagrant-astralinux --output vagrant-astralinux-one.box
+vagrant package --base astraLinux --output vagrant-astralinux-one.box
+
+# we need to import that VB VM image to vagrant local repository
+vagrant box add --name vagrant-astralinux vagrant-astralinux-one.box
 
 # initialize vagrant folder
 vagrant init astralinux-test
 
 # use Vagrantfile from same git repository to startup all 3 VMs
 vagrant up
+
+# then you can use vagrant ssh for remote access to VM
+vagrant ssh
